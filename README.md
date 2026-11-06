@@ -72,7 +72,7 @@ const apiSecret = '';
     name: 'optional',
   });
 
-  console.log(JSON.stringify(withdrawal, null, 2));
+  console.log(JSON.stringify(withdrawal));
 
 })();
 
