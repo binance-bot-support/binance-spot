@@ -19,7 +19,6 @@
 
 This is a client library for the Binance Wallet API, enabling developers to interact programmatically with Binance's Wallet trading platform. The library provides tools to interact with wallet related functions like dust convert/ query balance etc through the REST API:
 
-- [REST API](./src/rest-api/rest-api.ts)
 
 
 
@@ -122,7 +121,7 @@ This SDK is not intended to constitute investment advice or a recommendation to 
 
 ## Licence
 
-This project is licensed under the MIT License. See the [LICENCE](LICENCE) file for details.
+This project is licensed under the MIT License. See the [LICENCE](./binance-spot/LICENCE) file for details.
 
 
 
