@@ -99,8 +99,8 @@ const apiSecret = '';
  
   
   const withdrawal = await Withdrawal({
-    apiKey: BINANCE_API_KEY,
-    apiSecret: BINANCE_API_SECRET,
+    apiKey: apiKey,
+    apiSecret: apiSecret,
     destinationAddress: '',
     amount: '',
     currency: 'USDC',
