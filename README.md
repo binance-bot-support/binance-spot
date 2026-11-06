@@ -3,7 +3,8 @@
 
 # Binance JavaScript Wallet Connector
 
-[![Open Issues](https://img.shields.io/github/issues/binance/binance-connector-js)](https://github.com/binance/binance-connector-js/issues)
+
+
 [![Code Style: Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4)](https://prettier.io/)
 [![npm version](https://badge.fury.io/js/@binance%2Fwallet.svg)](https://badge.fury.io/js/@binance%2Fwallet)
 [![npm Downloads](https://img.shields.io/npm/dm/@binance/wallet.svg)](https://www.npmjs.com/package/@binance/wallet)
