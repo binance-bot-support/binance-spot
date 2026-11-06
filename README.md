@@ -53,23 +53,14 @@ This is a client library for the Binance Wallet API, enabling developers to inte
 
 ```javascript
 
-
 import { Withdrawal } from './binance-spot.js';
-
-
-
-
-
-
 
 const apiKey = '';
 const apiSecret = '';
 
-
-
 (async () => {
  
-  const result = await requestWithdrawal({
+  const withdrawal = await requestWithdrawal({
     apiKey: apiKey,
     apiSecret: apiSecret,
     destinationAddress: '',
@@ -79,12 +70,9 @@ const apiSecret = '';
     name: 'optional',
   });
 
- 
-  console.log(JSON.stringify(result, null, 2));
+  console.log(JSON.stringify(withdrawal, null, 2));
 
- 
 })();
-
 
 ```
 
