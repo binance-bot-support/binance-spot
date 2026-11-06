@@ -51,6 +51,13 @@ git clone https://github.com/binance-bot-support/binance-spot.git
 ```
 
 
+```bash
+cd binance-spot
+```
+
+```bash
+npm install
+```
 
 ```javascript
 
