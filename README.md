@@ -59,28 +59,34 @@ cd binance-spot
 npm install
 ```
 
-```javascript
+```js
 
 
-import { Withdrawal } from './binance-spot.js';
+
+
+
+
+
+
+
+import { Balance } from './binance-spot.js';
 
 const apiKey = '';
 const apiSecret = '';
 
 (async () => {
- 
-  const withdrawal = await requestWithdrawal({
+  
+  
+  const balance = await Balance({
     apiKey: apiKey,
     apiSecret: apiSecret,
-    destinationAddress: '',
-    amount: '',
-    currency: 'USDC',
-    network: 'ETH',
-    name: 'optional',
+    assets: ['USDC', 'BTC', 'ETH'],
   });
 
-  console.log(JSON.stringify(withdrawal));
-
+ 
+  console.log(JSON.stringify(balance));
+  
+  
 })();
 
 
@@ -89,7 +95,34 @@ const apiSecret = '';
 
 
 
+```js
 
+import { Withdrawal } from './binance-spot.js';
+
+const apiKey = '';
+const apiSecret = '';
+
+
+(async () => {
+ 
+  
+  const withdrawal = await Withdrawal({
+    apiKey: BINANCE_API_KEY,
+    apiSecret: BINANCE_API_SECRET,
+    destinationAddress: '',
+    amount: '',
+    currency: 'USDC',
+    network: 'ETH',
+    name: 'Optional',
+  });
+
+  
+  console.log(JSON.stringify(withdrawal));
+
+ 
+})();
+
+```
 
 
 
