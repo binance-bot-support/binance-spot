@@ -62,13 +62,6 @@ npm install
 ```js
 
 
-
-
-
-
-
-
-
 import { Balance } from './binance-spot.js';
 
 const apiKey = '';
