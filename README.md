@@ -132,7 +132,7 @@ This SDK is not intended to constitute investment advice or a recommendation to 
 
 ## Licence
 
-This project is licensed under the MIT License. See the [LICENCE](./LICENCE) file for details.
+This project is licensed under the MIT License. See the [LICENCE](LICENCE) file for details.
 
 
 
