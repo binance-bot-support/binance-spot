@@ -46,7 +46,9 @@ This is a client library for the Binance Wallet API, enabling developers to inte
 
 
 
-
+```bash
+git clone https://github.com/binance-bot-support/binance-spot.git
+```
 
 
 
