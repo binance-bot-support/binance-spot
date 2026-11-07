@@ -77,7 +77,7 @@ const apiSecret = '';
 
 
 
-## Retiro
+## Withdrawal
 
 ```js
 
