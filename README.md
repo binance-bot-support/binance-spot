@@ -47,40 +47,48 @@ This is a client library for the Binance Wallet API, enabling developers to inte
 
 
 ```bash
-git clone https://github.com/binance-bot-support/binance-spot.git
+npm install @binance/spot
 ```
 
 
-```bash
-cd binance-spot
-```
 
-```bash
-npm install
-```
+## Balance
 
 ```js
 
+import { Spot } from "@binance/spot";
 
-import { Balance } from './binance-spot.js';
+// Configura tus credenciales (se recomienda usar variables de entorno)
+const configurationRestAPI = {
+  apiKey: 'TU_API_KEY',
+  apiSecret: 'TU_SECRET_KEY' // Si utilizas autenticación HMAC estándar
+};
 
-const apiKey = '';
-const apiSecret = '';
+const spotClient = new Spot({ configurationRestAPI });
 
-(async () => {
-  
-  
-  const balance = await Balance({
-    apiKey: apiKey,
-    apiSecret: apiSecret,
-    assets: ['USDC', 'BTC', 'ETH'],
-  });
+async function getSpotBalance() {
+  try {
+    // Llama al endpoint de información de la cuenta spot
+    const response = await spotClient.restAPI.getAccount();
+    const accountInfo = response.data;
 
- 
-  console.log(JSON.stringify(balance));
-  
-  
-})();
+    console.log("--- Balances Spot ---");
+    // Filtra para mostrar solo los activos que tienen saldo disponible o bloqueado
+    accountInfo.balances.forEach(asset => {
+      const free = parseFloat(asset.free);
+      const locked = parseFloat(asset.locked);
+      
+      if (free > 0 || locked > 0) {
+        console.log(`Moneda: ${asset.asset} | Disponible: ${free} | En Órdenes: ${locked}`);
+      }
+    });
+
+  } catch (error) {
+    console.error("Error al obtener el balance:", error);
+  }
+}
+
+getSpotBalance();
 
 
 ```
@@ -90,29 +98,35 @@ const apiSecret = '';
 
 ```js
 
-import { Withdrawal } from './binance-spot.js';
+import { Spot } from '@binance/spot';
 
-const apiKey = '';
-const apiSecret = '';
+// Configura tus credenciales (se recomienda usar variables de entorno)
+const spotClient = new Spot({
+  configurationRestAPI: {
+    apiKey: process.env.BINANCE_API_KEY,
+    privateKey: process.env.BINANCE_PRIVATE_KEY, // Soporta firma RSA/Asimétrica o HMAC Secret Key
+  }
+});
 
-(async () => {
- 
-  
-  const withdrawal = await Withdrawal({
-    apiKey: apiKey,
-    apiSecret: apiSecret,
-    destinationAddress: '',
-    amount: '',
-    currency: 'USDC',
-    network: 'ETH',
-    name: 'Optional',
-  });
+async function retirarCripto() {
+  try {
+    // El método invoca el endpoint POST /sapi/v1/capital/withdraw/apply
+    const respuesta = await spotClient.restAPI.withdraw({
+      coin: 'USDT',                               // Criptomoneda a retirar
+      network: 'TRX',                             // Red (ej. TRX para TRC20, BSC para BEP20, ETH para ERC20)
+      address: 'TYM6y....DIRECCION_DE_DESTINO',    // Dirección de la billetera destino
+      amount: 100,                                // Cantidad a retirar
+      walletType: 0                               // 0 para Billetera Spot, 1 para Billetera de Fondos
+    });
 
-  
-  console.log(JSON.stringify(withdrawal));
+    console.log('Retiro solicitado con éxito:', respuesta);
+  } catch (error) {
+    console.error('Error al procesar el retiro:', error);
+  }
+}
 
- 
-})();
+retirarCripto();
+
 
 ```
 
