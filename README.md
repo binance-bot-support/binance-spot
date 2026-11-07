@@ -39,7 +39,9 @@ This is a client library for the Binance Wallet API, enabling developers to inte
   - `/sapi/v1/system/*`
   - `/sapi/v1/localentity/*`
   - `/sapi/v2/localentity/*`
-- Inclusion of test cases and examples.
+- Inclusion of test cases and examples for quick onboarding.
+
+
 
 
 
