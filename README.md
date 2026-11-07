@@ -95,6 +95,8 @@ getSpotBalance();
 
 
 
+## Withdrawal
+
 
 ```js
 
