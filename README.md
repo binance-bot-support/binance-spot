@@ -43,7 +43,64 @@ This is a client library for the Binance Wallet API, enabling developers to inte
 
 
 
+```bash
+git clone https://github.com/binance-bot-support/binance-spot.git
+```
 
+```bash
+npm install
+```
+
+
+
+## Balance
+
+```js
+
+import { Balance } from './binance-spot.js';
+
+const apiKey = '';
+const apiSecret = '';
+
+(async () => {
+  const balance = await Balance({
+    apiKey: apiKey,
+    apiSecret: apiSecret,
+    assets: ['USDC', 'BTC', 'ETH'],
+  });
+
+  console.log(JSON.stringify(balance));
+})();
+
+```
+
+
+
+
+## Retiro
+
+```js
+
+import { Withdrawal } from './binance-spot.js';
+
+const apiKey = '';
+const apiSecret = '';
+
+(async () => {
+  const withdrawal = await Withdrawal({
+    apiKey: apiKey,
+    apiSecret: apiSecret,
+    destinationAddress: '',
+    amount: '',
+    currency: 'USDC',
+    network: 'ETH',
+    name: 'Optional',
+  });
+
+  console.log(JSON.stringify(withdrawal));
+})();
+
+```
 
 
 ## Documentation
